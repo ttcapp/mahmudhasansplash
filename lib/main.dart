@@ -4,22 +4,21 @@ import 'package:flutter/material.dart';
 void main() {
   runApp(const MyApp());
 }
-String btnText1="Click to show assetimg in Row";
-String btnText2="Click to show NetImg in Row";
-String btnText="Button One";
+String btnText1="show assetimg in Row";
+String btnText2="show NetImg in Row";
+String btnText3="Button Three";
 
-bool rowVisiblility=false;
-bool ImageVisibility= false;
-bool ImageVisibility2=false;
+bool rowVisiblility1=false;
+bool rowVisibility2=false;
+bool ImageVisibility3= false;
 
-
-Color btnColor=Colors.green;
 Color btnColor1=Colors.purpleAccent;
 Color btnColor2=Colors.blue;
+Color btnColor3=Colors.green;
+
 String imgSrc1="https://cdn.pixabay.com/photo/2015/04/19/08/32/marguerite-729510__480.jpg";
-String imgSrc2="https://cdn.pixabay.com/photo/2015/04/19/08/32/marguerite-729510__480.jpg";
-String imgAsset1="assets/images/img1.jpg";
-String imgAsset2="assets/images/img1.jpg";
+String imgSrc2="https://upload.wikimedia.org/wikipedia/commons/c/c5/Various_flowers.jpg";
+
 double imgHeight=150;
 double imgWidth=200;
 
@@ -50,10 +49,8 @@ class _HomePageState extends State<HomePage> {
         backgroundColor: Colors.green,
         title: Text("Batch_C_All practise"),
       ),
-      body: SingleChildScrollView(
-
-
-
+      body:
+      SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Center(
           child: Column(
@@ -64,14 +61,14 @@ class _HomePageState extends State<HomePage> {
                   onPressed: (){
                     setState(() {
                       btnText1="Pictur has showed";
-                      rowVisiblility=true;
+                      rowVisiblility1=true;
                       btnColor1=Colors.green;
                     });
               }),
               SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Visibility(
-                  visible: rowVisiblility,
+                  visible: rowVisiblility1,
                   child: Row(
                     children: [
                       Padding(
@@ -144,7 +141,7 @@ class _HomePageState extends State<HomePage> {
                   color: btnColor2,
                   onPressed: (){
                     setState(() {
-                      ImageVisibility2=true;
+                      rowVisibility2=true;
                       btnText2="Button Pressed";
                       btnColor2=Colors.redAccent;
                     });
@@ -152,7 +149,7 @@ class _HomePageState extends State<HomePage> {
               SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Visibility(
-                  visible: ImageVisibility2,
+                  visible: rowVisibility2,
                   child: Row(
                     children: [
                       Padding(
@@ -221,7 +218,7 @@ class _HomePageState extends State<HomePage> {
               ),
 
               Container(
-                width: 300,
+                width: MediaQuery.of(context).size.width,
                 height: 300,
                 color: Colors.lightGreen,
                 child: Image.asset("assets/images/img1.jpg",fit: BoxFit.cover,),
@@ -233,25 +230,25 @@ class _HomePageState extends State<HomePage> {
                   height: 300,
                   width: 300,
                   color: Colors.blue,
-                  child: Image.network("https://cdn.pixabay.com/photo/2015/04/19/08/32/marguerite-729510__480.jpg",fit: BoxFit.cover,)
+                  child: Image.network(imgSrc2,fit: BoxFit.cover,)
               ),
               RaisedButton(
-                  child: Text(btnText,style: TextStyle(color: Colors.white,fontSize: 20,fontWeight: FontWeight.bold),),
-                  color: btnColor,
+                  child: Text(btnText3,style: TextStyle(color: Colors.white,fontSize: 20,fontWeight: FontWeight.bold),),
+                  color: btnColor3,
                   onPressed: (){
                     setState(() {
-                      btnText="Button Pressed";
-                      ImageVisibility= true;
-                      btnColor=Colors.black;
+                      btnText3="Button Pressed";
+                      ImageVisibility3= true;
+                      btnColor3=Colors.black;
                     });
                   }),
               SizedBox(
                 height: 20,
               ),
               Visibility(
-                visible: ImageVisibility,
+                visible: ImageVisibility3,
                 child: Container(
-                  height: MediaQuery.of(context).size.height,
+                  height: 300,
                   width: MediaQuery.of(context).size.width,
                   decoration: BoxDecoration(
                       border: Border.all(width: 5),
