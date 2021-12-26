@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:splash/Six_page_grid_view.dart';
+import 'package:splash/forth_page_three_column.dart';
 import 'package:splash/second_page.dart';
+import 'package:splash/third_page_two_row.dart';
 String avatorSrc="https://cdn.pixabay.com/photo/2021/02/12/07/03/red-icon-6007530_640.png";
-String btnText1="show assetimg in Row";
-String btnText2="show NetImg in Row";
+String btnText1="Show Asset Image in Row";
+String btnText2="Show Network Image in Row";
 String btnText3="Button Three";
+String btnNextPage="ListView.builder,second_page";
 
 bool rowVisiblility1=false;
 bool rowVisibility2=false;
@@ -14,6 +18,8 @@ Color btnColor2=Colors.blue;
 Color btnColor3=Colors.green;
 
 String imgSrc1="https://cdn.pixabay.com/photo/2015/04/19/08/32/marguerite-729510__480.jpg";
+//String imgSrc02="https://upload.wikimedia.org/wikipedia/commons/c/c5/Various_flowers.jpg";
+
 String imgSrc2="https://upload.wikimedia.org/wikipedia/commons/c/c5/Various_flowers.jpg";
 
 double imgHeight=150;
@@ -45,6 +51,8 @@ class _HomePageState extends State<HomePage> {
       SingleChildScrollView(
         child: Column(
           children: [
+
+            // Background Image
             Container(
                   decoration: BoxDecoration(
                       border: Border.all(width: 5,color: Colors.red),
@@ -58,11 +66,12 @@ class _HomePageState extends State<HomePage> {
               child: Center(
                 child: Column(
                   children: [
-
+                    //post,following ,follower
                     SingleChildScrollView(
                       scrollDirection: Axis.horizontal,
                       child: Row(
                         children: [
+                          //avator Image
                           Padding(
                             padding: const EdgeInsets.all(8.0),
                             child: Container(
@@ -159,15 +168,50 @@ class _HomePageState extends State<HomePage> {
                         ],
                       ),
                     ),
+                    SizedBox(
+                      height: 150,
+                    ),
 
+                    //GridView button
+                    ElevatedButton(
+                        onPressed: (){
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=>SixPage()));
+                        },
+                        child: Text("Grid View")),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    //ForthPage
+                    ElevatedButton(
+                        onPressed: (){
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=>ForthPage()));
+                        },
+                        child: Text("Show Two Column")),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    //ThirdPage
+                    ElevatedButton(
+                        onPressed: (){
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=>ThirdPage()));
+                        },
+                        child: Text("Show two Row")),
+                    SizedBox(
+                      height: 10,
+                    ),
 
-
+                    //SecondPage
                     ElevatedButton(
                         onPressed: (){
                           Navigator.push(context, MaterialPageRoute(builder: (context)=>SecondPage() ));
                         },
-                        child: Text("Go To Second Page")
+                        child: Text(btnNextPage)
                     ),
+                    SizedBox(
+                      height: 10,
+                    ),
+
+                     //press Raised button show Two asset Image decoration Row
 
                     RaisedButton(
                         color: btnColor1,
@@ -250,6 +294,11 @@ class _HomePageState extends State<HomePage> {
                         ),
                       ),
                     ),
+                    SizedBox(
+                      height: 10,
+                    ),
+
+                    //press Raised button show Two Network Image decoration Row
                     RaisedButton(
                         child: Text(btnText2,style: TextStyle(fontSize: 32),),
                         color: btnColor2,
@@ -330,6 +379,7 @@ class _HomePageState extends State<HomePage> {
                         ),
                       ),
                     ),
+                    // A singel Asset Image
 
                     Container(
                       width: MediaQuery.of(context).size.width,
@@ -340,12 +390,17 @@ class _HomePageState extends State<HomePage> {
                     SizedBox(
                       height: 20,
                     ),
+
+                    // A singel Network Image
                     Container(
                         height: 300,
                         width: 300,
                         color: Colors.blue,
                         child: Image.network(imgSrc2,fit: BoxFit.cover,)
                     ),
+
+                               //Third button press picture visible
+
                     RaisedButton(
                         child: Text(btnText3,style: TextStyle(color: Colors.white,fontSize: 20,fontWeight: FontWeight.bold),),
                         color: btnColor3,
