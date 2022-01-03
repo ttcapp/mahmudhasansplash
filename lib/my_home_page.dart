@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:splash/Six_page_grid_view.dart';
-import 'package:splash/forth_page_three_column.dart';
-import 'package:splash/second_page.dart';
-import 'package:splash/third_page_two_row.dart';
+import 'package:splash/log_in.dart';
+import 'package:splash/qran.dart';
+import 'package:splash/grid_view.dart';
+import 'package:splash/two_column.dart';
+import 'package:splash/list_view_bulder.dart';
+import 'package:splash/two_row.dart';
+import 'package:splash/slider.dart';
 String avatorSrc="https://cdn.pixabay.com/photo/2021/02/12/07/03/red-icon-6007530_640.png";
 String btnText1="Show Asset Image in Row";
 String btnText2="Show Network Image in Row";
@@ -24,9 +27,6 @@ String imgSrc2="https://upload.wikimedia.org/wikipedia/commons/c/c5/Various_flow
 
 double imgHeight=150;
 double imgWidth=200;
-
-
-
 
 
 class HomePage extends StatefulWidget {
@@ -171,7 +171,35 @@ class _HomePageState extends State<HomePage> {
                     SizedBox(
                       height: 150,
                     ),
-
+                   //LogInPage
+                    ElevatedButton(
+                        onPressed: (){
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>LogIn()));
+                     }, child: Text("LogIn Facebook")
+                    ),
+                    SizedBox(
+                      height: 15,
+                    ),
+                   //Quran 30 para
+                   ElevatedButton(
+                       onPressed: (){
+                         Navigator.push(context, MaterialPageRoute(builder: (context)=>Quran()  ));
+                       },
+                       child: Text("কোরআন ৩০ পারা")
+                   ),
+                     SizedBox(
+                       height: 15,
+                     ),
+                   //slider Image
+                   ElevatedButton(
+                       onPressed: (){
+                         Navigator.push(context, MaterialPageRoute(builder: (context)=>ImageSlider()));
+                       },
+                       child: Text("Image Slide")
+                   ),
+                    SizedBox(
+                      height: 15,
+                    ),
                     //GridView button
                     ElevatedButton(
                         onPressed: (){
