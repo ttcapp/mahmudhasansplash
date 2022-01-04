@@ -185,7 +185,7 @@ class _HomePageState extends State<HomePage> {
                        onPressed: (){
                          Navigator.push(context, MaterialPageRoute(builder: (context)=>Quran()  ));
                        },
-                       child: Text("কোরআন ৩০ পারা")
+                       child: Text("কোরআন ৩০ পারা ")
                    ),
                      SizedBox(
                        height: 15,

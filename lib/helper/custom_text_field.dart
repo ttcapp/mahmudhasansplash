@@ -24,6 +24,11 @@ class _CustomTextFieldState extends State<CustomTextField> {
       padding: const EdgeInsets.only(
           left: 28.0,right: 28),
       child: TextFormField(
+             validator: (value){
+             if(value!.isEmpty){
+               return "This field can not be empty";
+             }
+             },
         obscureText: widget.obsecureval,
         controller: widget.controller,
         decoration: InputDecoration(
